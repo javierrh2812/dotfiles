@@ -17,6 +17,11 @@ function install {
 install curl
 install git
 
+#utilities
+install snapd
+install caffeine
+install code
+
 # Not tan basics xd
 install neofetch
 install speedtest-cli

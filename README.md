@@ -4,6 +4,8 @@ My personal set-up scripts
 
 ## Included `scripts/`
 
+### Comment lines in programs.sh to avoid duplication
+
 - `symlink.sh` sets up symbolic links in `$HOME`
 - `aptinstall.sh` owns Ubuntu repository installs
 - `programs.sh` leverages progressive command line installation of other software
@@ -14,6 +16,13 @@ git clone https://github.com/javierrh2812/dotfiles
 cd dotfiles
 ./install.sh
 ```
+
+# Gnome extensions 
+1. Clipboard indicator
+2. Emoji selector
+3. Simple Task Bar
+4. Sound Input & Output Device Choooser
+5. User themes
 
 ## TODO 
 - [x] move rm docker to docker file
