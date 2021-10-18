@@ -14,7 +14,7 @@ function install {
 
 
 function setGithub () {
-    git remote set-url origin --add git@github.com:javierrh2812/"${PWD##*/}".git
+    git remote add origin git@github.com:javierrh2812/"${PWD##*/}".git
     git remote -v
 }
 

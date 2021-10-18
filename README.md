@@ -14,3 +14,12 @@ git clone https://github.com/javierrh2812/dotfiles
 cd dotfiles
 ./install.sh
 ```
+
+## TODO 
+- [x] move rm docker to docker file
+- [x] missing: nvm install node
+- [x] node not executable message when opens neovim
+- [ ] allow select what programs install
+- [ ] vim icons error (add scripts to download a nerd font, to use vim devicons) 
+- [ ] Fix albert installation
+
