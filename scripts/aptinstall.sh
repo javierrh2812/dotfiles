@@ -16,11 +16,13 @@ function install {
 # Basics
 install curl
 install git
+install kitty
 
 #utilities
 install snapd
 install caffeine
 install code
+install xclip
 
 # Not tan basics xd
 install neofetch

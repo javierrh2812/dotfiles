@@ -23,12 +23,11 @@ cd dotfiles
 3. Simple Task Bar
 4. Sound Input & Output Device Choooser
 5. User themes
-
 ## TODO 
 - [x] move rm docker to docker file
 - [x] missing: nvm install node
 - [x] node not executable message when opens neovim
 - [ ] allow select what programs install
 - [ ] vim icons error (add scripts to download a nerd font, to use vim devicons) 
-- [ ] Fix albert installation
+- [ ] Fix albert installation for pop os
 

@@ -1,0 +1,10 @@
+[user]
+	email = javierrh2812@github.com
+	name = "javier "
+	signingKey = ""
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
