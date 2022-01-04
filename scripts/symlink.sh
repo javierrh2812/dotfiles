@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Up from scripts dir
-cd ..
+pwd
 dotfilesDir=$(pwd)
 
 printf "\n\n---Setting dotfiles symlinks---\n\n"
@@ -35,7 +35,8 @@ linkDotfile .bashrc
 linkDotfile .bash_profile
 linkDotfile .bash_aliases
 linkDotfile .gitconfig
-linkDotfile .config/neofetch/config.conf
-linkDotfile .config/albert/albert.conf
+linkDotfile .config/neofetch
+linkDotfile .config/albert
+linkDotfile .config/fish
 
 printf "\n\n---Succesfully created dotfiles symlinks ---\n\n"

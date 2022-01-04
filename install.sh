@@ -1,22 +1,26 @@
 #!/bin/bash
 
-cd ./scripts
+preguntar(){
+   while true; do
+	read -p "$1 [Yy/Nn]? " yn
+	    case $yn in
+		[Yy]* ) eval "$2"; break;;
+		[Nn]* ) break;;
+		* ) echo "Please answer yes or no.";;
+	    esac
+	done
+}
 
-#./pop_os.sh
-#./aptinstall.sh
-./programs.sh
-#./symlink.sh
+preguntar "Do you wish to install apt packages" "./scripts/aptinstall.sh"
+
+preguntar "Do you wish to install another programs" "./scripts/programs.sh"
+
+preguntar "Do you wish to create symlinks?" "./scripts/symlink.sh"
 
 #printf "finally: setting a new ssh key"
 #mkdir "~/.ssh"
 #ssh-keygen -t ed25519
 
-# Get all upgrades
-sudo apt upgrade -y
-sudo apt autoremove
-
-# See our bash changes
-source ~/.bashrc
 
 # Fun hello
 figlet "we're back!" | lolcat

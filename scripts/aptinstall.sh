@@ -16,10 +16,11 @@ function install {
 # Basics
 install curl
 install git
-install kitty
+
+#pop-os
+install gnome-tweaks
 
 #utilities
-install snapd
 install caffeine
 install code
 install xclip
