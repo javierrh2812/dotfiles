@@ -78,6 +78,7 @@ set wildmenu
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 "  \'coc-tabnine',
 "   PLUGIN!!!!!!!!!!!!!!!!
+"
 call plug#begin('~/.vim/plugged')
 "Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
@@ -90,9 +91,7 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
-                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-autocmd vimenter * ++nested colorscheme gruvbox
+colorscheme gruvbox
 
 let g:fzf_preview_window = ['right:50%', 'ctrl-p']
 let g:fzf_action = {
@@ -115,9 +114,9 @@ nmap <Leader>b :!echo <C-R><C-W> \| base64 -d<CR>
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <C-n> <Esc>
 
-nnoremap <Leader>nn :tabnew<CR>:call OpenTerminal()<CR><Esc>
+nnoremap <Leader>tt :tabnew<CR>:call OpenTerminal()<CR><Esc>
 nnoremap <Leader>ww :tabnew<CR>:e ~/Workspace/notes/index.md<CR>
-nnoremap <Leader>n :call OpenTerminal()<CR>
+nnoremap <Leader>nn :call OpenTerminal()<CR>
  
 "plugs
 nmap <Leader>nt :NERDTreeFind<CR>
@@ -140,7 +139,6 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " run current file
 nnoremap <Leader>x :!node %<cr>
 nnoremap <Leader>py :!python3 %<cr>
-nnoremap <Leader>ns :!npm start<cr>
 
 "goto code navigation
 nmap <silent> gd <Plug>(coc-definition)
@@ -190,4 +188,3 @@ inoremap <Right> <Nop>
 "nnoremap <A-7> 7gt
 "nnoremap <A-8> 8gt
 "nnoremap <A-9> 9gt
-
