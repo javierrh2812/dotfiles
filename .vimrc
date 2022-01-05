@@ -82,14 +82,56 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 call plug#begin('~/.vim/plugged')
 "Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
+Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = [ 'coc-snippets', 'coc-emmet' ] 
+let g:coc_global_extensions = [ 
+      \ 'coc-snippets', 
+      \ 'coc-emmet', 
+      \ 'coc-tsserver', 
+      "\ 'coc-tabnine' 
+      \ ] 
 Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
+
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <c-c> coc#refresh()
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+
+" `s{char}{char}{label}`
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+"map <Leader>j <Plug>(easymotion-j)
+"map <Leader>k <Plug>(easymotion-k)
+
+let g:lightline = {
+  \     'active': {
+  \         'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],
+  \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
+  \     }
+  \ }
 
 colorscheme gruvbox
 
@@ -116,7 +158,7 @@ inoremap <C-n> <Esc>
 
 nnoremap <Leader>tt :tabnew<CR>:call OpenTerminal()<CR><Esc>
 nnoremap <Leader>ww :tabnew<CR>:e ~/Workspace/notes/index.md<CR>
-nnoremap <Leader>nn :call OpenTerminal()<CR>
+nnoremap <Leader>ot :call OpenTerminal()<CR>
  
 "plugs
 nmap <Leader>nt :NERDTreeFind<CR>
