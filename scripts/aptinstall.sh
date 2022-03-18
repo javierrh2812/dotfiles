@@ -16,6 +16,7 @@ function install {
 # Basics
 install curl
 install git
+install tmux
 
 #pop-os
 install gnome-tweaks
