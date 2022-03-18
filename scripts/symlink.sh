@@ -30,13 +30,14 @@ function linkDotfile {
   ln -s ${dotfilesDir}/${1} ${dest}
 }
 
-linkDotfile .vimrc
-linkDotfile .bashrc
-linkDotfile .bash_profile
-linkDotfile .bash_aliases
-linkDotfile .gitconfig
-linkDotfile .config/neofetch
-linkDotfile .config/albert
-linkDotfile .config/fish
+#linkDotfile .vimrc
+#linkDotfile .bashrc
+#linkDotfile .bash_profile
+#linkDotfile .bash_aliases
+#linkDotfile .gitconfig
+#linkDotfile .config/neofetch
+#linkDotfile .config/albert
+#linkDotfile .config/fish
+linkDotfile .config/alacritty
 
 printf "\n\n---Succesfully created dotfiles symlinks ---\n\n"
