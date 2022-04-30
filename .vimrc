@@ -28,8 +28,8 @@ set splitright          " Open new vertical panes in the right rather than left.
 set splitbelow          " Open new horizontal panes in the bottom rather than top.
 
 "whitespace
-set tabstop=3           " Number of spaces a tab counts for.
-set shiftwidth=3        " Number of spaces to use for each step of indent.
+set tabstop=2           " Number of spaces a tab counts for.
+set shiftwidth=2        " Number of spaces to use for each step of indent.
 
 " Searching
 set nohlsearch 			"disable highligth search matches
@@ -44,13 +44,15 @@ set foldmethod=syntax "syntax highlighting items specify folds
 let javaScript_fold=1 "activate folding by JS syntax
 set foldlevelstart=0 "start file with all folds opened
 
-nnoremap <leader> + :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <leader> - :exe "resize " . (winheight(0) * 2/3)<CR>
+"nnoremap <leader> + :exe "resize " . (winheight(0) * 3/2)<CR>
+"nnoremap <leader> - :exe "resize " . (winheight(0) * 2/3)<CR>
+
+imap jj <Esc>
 
 tnoremap <Esc> <C-\><C-n>
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 function! OpenTerminal()
-   split term://bash
+   split term://fish
    resize 10
 endfunction
 
@@ -221,12 +223,12 @@ inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
 " Alt-# goes to the #th tab.
-"nnoremap <A-1> 1gt
-"nnoremap <A-2> 2gt
-"nnoremap <A-3> 3gt
-"nnoremap <A-4> 4gt
-"nnoremap <A-5> 5gt
-"nnoremap <A-6> 6gt
-"nnoremap <A-7> 7gt
-"nnoremap <A-8> 8gt
-"nnoremap <A-9> 9gt
+nnoremap <A-1> 1gt
+nnoremap <A-2> 2gt
+nnoremap <A-3> 3gt
+nnoremap <A-4> 4gt
+nnoremap <A-5> 5gt
+nnoremap <A-6> 6gt
+nnoremap <A-7> 7gt
+nnoremap <A-8> 8gt
+nnoremap <A-9> 9gt
