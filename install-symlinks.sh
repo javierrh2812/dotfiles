@@ -4,10 +4,11 @@
 pwd
 dotfilesDir=$(pwd)
 
-printf "\n\n---Setting dotfiles symlinks---\n\n"
+printf "\n---Setting dotfiles symlinks---\n"
 
 function linkDotfile {
-  dest="${HOME}/${1}"
+  origin=$1
+  [[ -n $2 ]] && dest="$HOME/$2" || dest="$HOME/$1"
   dateStr=$(date +%Y-%m-%d-%H%M)
 
   if [ -h ~/${1} ]; then
@@ -26,18 +27,19 @@ function linkDotfile {
     mv ${dest}{,.${dateStr}}
   fi
 
-  echo "Creating new symlink: ${dest}"
+  echo "Creating new symlink, from $dest"
   ln -s ${dotfilesDir}/${1} ${dest}
 }
 
-#linkDotfile .vimrc
+linkDotfile .config/i3
+linkDotfile .config/albert/albert.conf
+linkDotfile .config/albert/org.albert.extension.websearch
+linkDotfile .config/neofetch
+linkDotfile .config/.vimrc .vimrc
+linkDotfile .config/.tmux.conf .tmux.conf
+linkDotfile .config/.zshrc .zshrc
+linkDotfile .config/.gitconfig .gitconfig
 #linkDotfile .bashrc
-#linkDotfile .bash_profile
-#linkDotfile .bash_aliases
-#linkDotfile .gitconfig
-#linkDotfile .config/neofetch
-#linkDotfile .config/albert
-#linkDotfile .config/fish
-linkDotfile .config/alacritty
+#linkDotfile .config/alacritty
 
-printf "\n\n---Succesfully created dotfiles symlinks ---\n\n"
+printf "\n---Succesfully created dotfiles symlinks ---\n"

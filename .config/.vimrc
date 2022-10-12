@@ -48,11 +48,10 @@ set foldlevelstart=0 "start file with all folds opened
 "nnoremap <leader> - :exe "resize " . (winheight(0) * 2/3)<CR>
 
 imap jj <Esc>
-
 tnoremap <Esc> <C-\><C-n>
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 function! OpenTerminal()
-   split term://fish
+   split term://zsh
    resize 10
 endfunction
 
@@ -63,33 +62,18 @@ function SetVimPresentationMode()
   nnoremap <buffer> <Left> :N<CR>
 endfunction
 
-"FINDING FILES:
-"search down into subfolders
-"provides tab-completion fol all file-related tasks
-set path+=**
-"display all matching files when we tab complete
-set wildmenu
-"NOW WE CAN:
-"- hit tab to :find by partial match
-"- use * to make it fuzzy
-"THINGS TO CONSIDER:
-"- :b lets you autocomplete any open buffer
-
-" SNIPPETS
-"read an empty HTML template and move cursor to title
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
-"  \'coc-tabnine',
-"   PLUGIN!!!!!!!!!!!!!!!!
 "
 call plug#begin('~/.vim/plugged')
 "Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [ 
       \ 'coc-snippets', 
       \ 'coc-emmet', 
       \ 'coc-tsserver', 
+      \ 'coc-angular',
       "\ 'coc-tabnine' 
       \ ] 
 Plug 'sheerun/vim-polyglot'
@@ -102,20 +86,35 @@ Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+      
+
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <c-c> coc#refresh()
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <a-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
 
 " `s{char}{char}{label}`
@@ -130,9 +129,12 @@ let g:EasyMotion_smartcase = 1
 
 let g:lightline = {
   \     'active': {
-  \         'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],
+  \         'left': [['mode', 'paste' ], ['gitbranch', 'readonly', 'filename', 'modified']],
   \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
-  \     }
+  \     },
+  \     'component_function': {
+  \         'gitbranch': 'gitbranch#name'
+  \     },
   \ }
 
 colorscheme gruvbox
