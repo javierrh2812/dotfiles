@@ -62,9 +62,8 @@ function SetVimPresentationMode()
   nnoremap <buffer> <Left> :N<CR>
 endfunction
 
-"
+
 call plug#begin('~/.vim/plugged')
-"Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
@@ -74,7 +73,6 @@ let g:coc_global_extensions = [
       \ 'coc-emmet', 
       \ 'coc-tsserver', 
       \ 'coc-angular',
-      "\ 'coc-tabnine' 
       \ ] 
 Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdtree'
