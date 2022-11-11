@@ -38,11 +38,7 @@ git clone git@github.com:javierrh2812/dotfiles.git
 2.a Follow installation steps for OS
 https://software.opensuse.org/download.html?project=home:manuelschneid3r&package=albert
 
-2.b set symlinks
-```
-ln -s ~/Workspace/dotfiles/.config/albert/albert.conf ~/.config/albert/albert.conf
-ln -s ~/Workspace/dotfiles/.config/albert/org.albert.extension.websearch ~/.config/albert/org.albert.extension.websearch
-```
+2.b symlinks for albert config will be set from <code>./install.sh</code> script
 
 # Gnome extensions 
 1. Clipboard indicator

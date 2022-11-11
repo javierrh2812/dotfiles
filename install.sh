@@ -38,6 +38,7 @@ preguntar(){
 	done
 }
 
+preguntar "set albert symlinks" "linkDotfile .config/albert/albert.conf && linkDotfile .config/albert/org.albert.extension.websearch"
 preguntar "install apt packages?" "./installation/aptinstall.sh"
 preguntar "install nvm?" "./installation/nvm.sh"
 preguntar "install neovim?" "./installation/neovim.sh"
