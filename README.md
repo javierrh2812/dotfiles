@@ -17,11 +17,32 @@ cd dotfiles
 ./install.sh
 ```
 
+## Steps
 
-# recommended
-1. Albert 
+1. For me
+
+1.a create ssh-key
+```
+ssh-keygen -t rsa -b 4096
+```
+
+1.b set ssh-key into github 
+
+1.c
+```
+git clone git@github.com:javierrh2812/dotfiles.git
+```
+
+2. Albert (optional)
+
+2.a Follow installation steps for OS
 https://software.opensuse.org/download.html?project=home:manuelschneid3r&package=albert
 
+2.b set symlinks
+```
+ln -s ~/Workspace/dotfiles/.config/albert/albert.conf ~/.config/albert/albert.conf
+ln -s ~/Workspace/dotfiles/.config/albert/org.albert.extension.websearch ~/.config/albert/org.albert.extension.websearch
+```
 
 # Gnome extensions 
 1. Clipboard indicator

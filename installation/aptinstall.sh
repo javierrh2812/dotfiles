@@ -1,6 +1,6 @@
 #!/bin/bash
 
-printf "\n\n---Installing basics, no tan basics and other stuff\n\n"
+printf "\n\n---Install apt packages\n"
 function install {
   which $1 &> /dev/null
 
@@ -16,15 +16,6 @@ function install {
 install git #probablemente ya tengas git
 install curl
 install tmux
-
-#zsh
-printf "\n\n---Installing zsh / oh-my-zsh / zshplugins---\n\n"
-#install zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-sudo git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
-sudo git clone https://github.com/lukechilds/zsh-better-npm-completion ~/.oh-my-zsh/custom/plugins/zsh-better-npm-completion
 
 #i3
 #install i3
@@ -43,4 +34,4 @@ install figlet
 install lolcat
 install libnotify-bin
 
-printf "\n\n---Succesfully installed---\n\n"
+printf "\n\n---end install apt packages---\n\n"

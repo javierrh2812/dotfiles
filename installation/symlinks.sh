@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Up from scripts dir
-pwd
 dotfilesDir=$(pwd)
 
 printf "\n---Setting dotfiles symlinks---\n"
@@ -31,14 +30,11 @@ function linkDotfile {
   ln -s ${dotfilesDir}/${1} ${dest}
 }
 
-linkDotfile .config/i3
-linkDotfile .config/albert/albert.conf
-linkDotfile .config/albert/org.albert.extension.websearch
-linkDotfile .config/neofetch
-linkDotfile .config/.vimrc .vimrc
-linkDotfile .config/.tmux.conf .tmux.conf
-linkDotfile .config/.zshrc .zshrc
-linkDotfile .config/.gitconfig .gitconfig
+#linkDotfile .config/albert/albert.conf
+#linkDotfile .config/albert/org.albert.extension.websearch
+#linkDotfile .config/neofetch
+#linkDotfile .config/.vimrc .vimrc
+#linkDotfile .config/i3
 #linkDotfile .bashrc
 #linkDotfile .config/alacritty
 
